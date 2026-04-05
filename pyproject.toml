@@ -12,7 +12,8 @@ dependencies = [
     "django (>=5.2,<5.3)",
     "pillow (>=12.2.0,<13.0.0)",
     "psycopg2-binary (>=2.9.11,<3.0.0)",
-    "python-dotenv (>=1.2.2,<2.0.0)"
+    "python-dotenv (>=1.2.2,<2.0.0)",
+    "djangorestframework (>=3.17.1,<4.0.0)"
 ]
 
 
