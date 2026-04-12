@@ -24,6 +24,6 @@
 - endopoint disponibilidad salas por fecha funcionando
 
 ## cosas para añadir
-
+- seguir trabajando el tema de lo que sale n ele tema de coockies y demas
 - end pints nuevos en la api
 
