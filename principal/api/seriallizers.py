@@ -42,7 +42,7 @@ class GrupoSerializer(serializers.ModelSerializer):
         model = Grupo
         fields = ['id', 'nombre', 'genero', 'integrantes', 'biografia', 'usuario', 'redes_sociales', 'imagen', 'rider', 'ciudad', 'email_contacto', 'telefono_contacto']
 # crear
-@login_required
+
 class CreateGrupoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grupo
