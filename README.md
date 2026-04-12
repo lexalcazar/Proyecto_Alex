@@ -11,3 +11,6 @@
 - endopoint disponibilidad salas por fecha funcionando
 - añado busqueda de grupos por nombre
 - sesion y coockies funcionando
+- añado listado salas grupos
+- añado cuenta y cuenta publica
+- cambio reidreccion una vez logueado a cuenta y enlace a perfil
