@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'principal',
     'rest_framework',
     'drf_spectacular',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -62,7 +63,7 @@ ROOT_URLCONF = 'proyecto_alex.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / "templates"],  # Asegúrate de que esta ruta es correcta
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -147,3 +148,19 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ],
 }
+
+# /settings.py
+
+# Cookie de sesión segura (solo HTTPS en producción)
+SESSION_COOKIE_SECURE = False           # True en producción con HTTPS
+SESSION_COOKIE_HTTPONLY = True          # No accesible desde JavaScript
+SESSION_COOKIE_SAMESITE = 'Lax'         # Protección CSRF básica
+SESSION_COOKIE_AGE = 1209600            # 2 semanas en segundos
+
+# Motor de sesiones (por defecto usa base de datos)
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
+
+# Redirecciones post-login/logout
+LOGIN_REDIRECT_URL = 'perfil'
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_URL = 'login'

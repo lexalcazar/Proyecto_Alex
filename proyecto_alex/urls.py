@@ -22,7 +22,8 @@ from proyecto_alex import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('principal.urls')),
-    path('api/', include('principal.urls_api')),
+    path('api/', include('principal.api.urls_api')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 if settings.DEBUG:

@@ -33,9 +33,9 @@ class Sala(models.Model):
 
 class Grupo(models.Model):
     nombre = models.CharField(max_length=100)
-    genero = models.CharField(max_length=100)
+    genero = models.CharField(max_length=100, blank=True, null=True)
     integrantes = models.IntegerField()
-    biografia = models.TextField()
+    biografia = models.TextField(blank=True, null=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     redes_sociales = models.TextField(blank=True, null=True)
     imagen = models.ImageField(upload_to='grupos/', blank=True, null=True)

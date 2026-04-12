@@ -1,0 +1,39 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>🍪 Demo de Sesiones y Cookies</h2>
+    
+    <div class="card mt-4">
+        <div class="card-body">
+            <h5 class="card-title">Contador de visitas</h5>
+            <p class="display-4">{{ visitas }}</p>
+            
+            <hr>
+            
+            <dl class="row">
+                <dt class="col-sm-3">ID de Sesión:</dt>
+                <dd class="col-sm-9"><code>{{ session_id }}</code></dd>
+                
+                <dt class="col-sm-3">Primera visita:</dt>
+                <dd class="col-sm-9">{{ primera_visita|default:"Justo ahora" }}</dd>
+                
+                <dt class="col-sm-3">Cookie activa:</dt>
+                <dd class="col-sm-9">
+                    {% if request.session.session_key %}
+                        ✅ Sí (revisa herramientas de desarrollador → Application → Cookies)
+                    {% else %}
+                        ❌ No
+                    {% endif %}
+                </dd>
+            </dl>
+        </div>
+    </div>
+    
+    <div class="alert alert-info mt-3">
+        <strong>Experimento:</strong> Abre las herramientas de desarrollador (F12) → 
+        Application → Cookies → localhost. Busca la cookie <code>sessionid</code>.
+        Si borras esa cookie, el contador se reiniciará.
+    </div>
+</div>
+{% endblock %}

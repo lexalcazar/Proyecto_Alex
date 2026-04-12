@@ -1,0 +1,64 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8">
+            <h2>👤 Perfil de Usuario</h2>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">Información de cuenta</h5>
+                    <table class="table table-borderless">
+                        <tr>
+                            <td width="30%"><strong>Usuario:</strong></td>
+                            <td>{{ user.username }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email:</strong></td>
+                            <td>{{ user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nombre:</strong></td>
+                            <td>{{ user.first_name|default:"No especificado" }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Apellidos:</strong></td>
+                            <td>{{ user.last_name|default:"No especificado" }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Fecha registro:</strong></td>
+                            <td>{{ user.date_joined|date:"d/m/Y H:i" }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Último login:</strong></td>
+                            <td>{{ user.last_login|date:"d/m/Y H:i"|default:"Nunca" }}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card bg-light">
+                <div class="card-header">🔒 Información de Sesión</div>
+                <div class="card-body">
+                    <p><strong>Session ID:</strong><br>
+                    <code class="small">{{ session_info.session_key|default:"N/A" }}</code></p>
+                    
+                    <p><strong>Expira:</strong><br>
+                    {{ session_info.fecha_expiracion|date:"d/m/Y H:i" }}</p>
+                    
+                    <p><strong>Segundos restantes:</strong><br>
+                    {{ session_info.tiempo_restante }}</p>
+                    
+                    <hr>
+                    <a href="{% url 'logout' %}" class="btn btn-danger btn-sm w-100">
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

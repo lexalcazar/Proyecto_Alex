@@ -5,3 +5,9 @@
 - Tengo la api ap/usuarios/ funcionando get y post
 - Tengo la api api/salas/ funcionando
 - endpoint personalizado para buscar salas por ciudad
+- index html desde la app principal funcionando
+- separo la api en su carpeta para no teber todo mezclado
+- endpoint disponibilidad de salas funcionando
+- endopoint disponibilidad salas por fecha funcionando
+- añado busqueda de grupos por nombre
+- sesion y coockies funcionando
