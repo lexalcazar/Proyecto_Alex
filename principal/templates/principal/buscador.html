@@ -1,0 +1,17 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Buscador</h2>
+    <input 
+    type="text"
+    name="q"
+    placeholder="Buscar por nombre o ciudad..."
+    
+    hx-get="{% url 'buscar' %}"
+    hx-target="#resultados"
+    hx-trigger="keyup changed delay:300ms"
+    >
+    <div id="resultados">
+    <!-- Aquí se cargarán los resultados -->
+    </div>
+{% endblock %}

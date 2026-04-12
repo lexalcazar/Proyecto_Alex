@@ -1,0 +1,23 @@
+{% if query %}
+    <h3>Salas</h3>
+    {% if salas %}
+        <ul>
+            {% for sala in salas %}
+               <a href="{% url 'cuenta_publica_salas' sala.id %}"><li>{{ sala.nombre }} — {{ sala.ciudad }}</li></a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay salas.</p>
+    {% endif %}
+
+    <h3>Grupos</h3>
+    {% if grupos %}
+        <ul>
+            {% for grupo in grupos %}
+              <a href="{% url 'cuenta_publica_grupos' grupo.id %}"><li>{{ grupo.nombre }} — {{ grupo.ciudad }}</li></a>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay grupos.</p>
+    {% endif %}
+{% endif %}

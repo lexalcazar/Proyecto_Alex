@@ -1,10 +1,11 @@
 {% extends 'base_generic.html' %}
 {% block content %}
     <h2>Listado de Salas</h2>
+ 
     <ul>
         {% for sala in salas %}
             <li>
-                <a href="{% url 'cuenta_publica_salas' sala.id %}">{{ sala.nombre }}</a> - {{ sala.ciudad }} 
+                <a href="{% url 'cuenta_publica_salas' sala.id %}">{{ sala.nombre }} - {{ sala.ciudad }}</a> 
                 <a href="{% url 'fechas_disponibles' sala.id %}">Fechas Disponibles</a>
             </li>
         {% endfor %}

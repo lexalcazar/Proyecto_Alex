@@ -3,11 +3,21 @@
 
 {% block content %}
     <h1>Bienvenido </h1>
-    <p>Utiliza los siguientes endpoints para interactuar con la API:</p>
+   
+    <h2>Utiliza los siguientes endpoints para interactuar con la API:</h2>
     <ul>
         <li><a href="/api/usuarios/">/api/usuarios/</a> - Listar y crear usuarios</li>
         <li><a href="/api/salas/">/api/salas/</a> - Listar y crear salas</li>
         <li><a href="/api/salas/ciudad/">/api/salas/ciudad/</a> - Buscar salas por ciudad</li>
         <li><a href="/api/grupos/">/api/grupos/</a> - Listar y crear grupos</li>
     </ul>
+    <h2>Enlaces a la aplion web:</h2>
+    <ul>
+        <li><a href="{% url 'listado_salas' %}">Listado de Salas</a></li>
+        <li><a href="{% url 'listado_grupos' %}">Listado de Grupos</a></li>
+        <li><a href="{% url 'buscador' %}">Buscador de Salas</a></li>
+    </ul>
+
+
+
 {% endblock %}

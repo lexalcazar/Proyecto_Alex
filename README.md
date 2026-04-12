@@ -14,3 +14,9 @@
 - añado listado salas grupos
 - añado cuenta y cuenta publica
 - cambio reidreccion una vez logueado a cuenta y enlace a perfil
+- busqueda de grupos o salas por ciudad o nembre con htmx
+- funcionalidad sin log in
+## cosas para añadir
+
+- end pints nuevos en la api
+
