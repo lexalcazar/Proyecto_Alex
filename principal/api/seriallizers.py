@@ -1,6 +1,6 @@
 
 from rest_framework import serializers
-
+from django.contrib.auth.decorators import login_required
 from principal.models import DisponibilidadSala, Grupo, Sala, Usuario
 # Serializadores para los Usuarios
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -42,6 +42,7 @@ class GrupoSerializer(serializers.ModelSerializer):
         model = Grupo
         fields = ['id', 'nombre', 'genero', 'integrantes', 'biografia', 'usuario', 'redes_sociales', 'imagen', 'rider', 'ciudad', 'email_contacto', 'telefono_contacto']
 # crear
+@login_required
 class CreateGrupoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Grupo

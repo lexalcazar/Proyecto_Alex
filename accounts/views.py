@@ -1,5 +1,7 @@
 from django.utils import timezone
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
+
+from principal.models import Sala, Grupo
 from .forms import LoginForm, RegistroForm
 # Create your views here.
 
@@ -60,7 +62,7 @@ def login_view(request):
             next_url = request.GET.get('next')
             if next_url:
                 return redirect(next_url)
-            return redirect('perfil')
+            return redirect('cuenta')
         else:
             messages.error(request, 'Usuario o contraseña incorrectos.')
     else:
@@ -110,3 +112,25 @@ def perfil_view(request):
         'session_info': session_info,
         'user': request.user,
     })
+#Una vez logueado el usuario accede a su cuenta
+# se redirige a cuenta.html
+# si su rol es de grupo se vera el grupo que tiene asignado
+# si su rol es de sala se vera la sala que tiene asignada
+def cuenta_view(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
+    
+    user = request.user
+    context = {'user': user}
+    
+    if user.rol == 'grupo':
+        # Obtener grupo asociado al usuario
+        grupo = Grupo.objects.filter(usuario=user).first()
+        context['grupo'] = grupo
+    elif user.rol == 'sala':
+        # Obtener sala asociada al usuario
+        sala = Sala.objects.filter(usuario=user).first()
+        context['sala'] = sala
+    
+    return render(request, 'principal/cuenta.html', context)
+

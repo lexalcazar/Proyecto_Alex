@@ -18,6 +18,7 @@ class LoginForm(AuthenticationForm):
             'placeholder': 'Contraseña'
         })
     )
+   
     remember_me = forms.BooleanField(
         required=False,
         widget=forms.CheckboxInput(attrs={'class': 'form-check-input'}),
@@ -43,10 +44,14 @@ class RegistroForm(UserCreationForm):
         widget=forms.TextInput(attrs={'class': 'form-control'}),
         label="Apellidos"
     )
-
+    rol = forms.ChoiceField(
+        choices=[('usuario', 'Usuario'), ('grupo', 'Grupo'), ('sala', 'Sala')],
+        widget=forms.Select(attrs={'class': 'form-control'}),
+        label="Tipo de usuario"
+    )
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2')
+        fields = ('username', 'first_name', 'last_name', 'email', 'password1', 'password2', 'rol')
         
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

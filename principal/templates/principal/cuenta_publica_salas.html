@@ -1,0 +1,29 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h2>{{ sala.nombre }}</h2>
+            </div>
+            <div class="card-body">
+                <p><strong>Ciudad:</strong> {{ sala.ciudad }}</p>
+                <p><strong>Dirección:</strong> {{ sala.direccion }}</p>
+                <p><strong>Capacidad:</strong> {{ sala.capacidad }}</p>
+                <p><strong>Equipamiento:</strong> {{ sala.equipamiento }}</p>           
+                <p><strong>Email de Contacto:</strong> {{ sala.email_contacto }}</p>
+                <p><strong>Teléfono de Contacto:</strong> {{ sala.telefono_contacto }}</p>
+                <p><strong>Rider:</strong> {{ sala.rider }}</p>
+                <a href="{% url 'fechas_disponibles' sala.id %}">Fechas Disponibles</a>
+                {% if sala.imagen %}
+                <img src="{{ sala.imagen.url }}" alt="Imagen de la sala" class="img-fluid mt-3">
+                {% endif %}
+                
+
+            </div>
+        </div>
+        <a href="{% url 'listado_salas' %}" class="btn btn-secondary mt-3">Volver al Listado de Salas</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Listado de Grupos</h2>
+    <ul>
+        {% for grupo in grupos %}
+            <li>
+                <!-- enlace a la cuenta del grupo-->
+                <a href="{% url 'cuenta_publica_grupos' grupo.id %}">{{ grupo.nombre }}</a> - {{ grupo.ciudad }} - {{ grupo.genero }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

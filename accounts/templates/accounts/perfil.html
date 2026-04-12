@@ -31,6 +31,10 @@
                             <td>{{ user.date_joined|date:"d/m/Y H:i" }}</td>
                         </tr>
                         <tr>
+                            <td><strong>Rol:</strong></td>
+                            <td>{{ user.rol|default:"No especificado" }}</td>
+                        </tr>
+                        <tr>
                             <td><strong>Último login:</strong></td>
                             <td>{{ user.last_login|date:"d/m/Y H:i"|default:"Nunca" }}</td>
                         </tr>
@@ -55,6 +59,10 @@
                     <hr>
                     <a href="{% url 'logout' %}" class="btn btn-danger btn-sm w-100">
                         Cerrar Sesión
+                    </a>
+                    <!--añadir enlace a cuenta.html-->
+                    <a href="{% url 'cuenta' %}" class="btn btn-secondary btn-sm w-100">
+                        Ir a Cuenta
                     </a>
                 </div>
             </div>

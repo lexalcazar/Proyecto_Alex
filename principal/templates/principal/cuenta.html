@@ -1,0 +1,59 @@
+{% extends 'base_generic.html' %}
+<!-- aqui se ve la informacion de la cuenta creada, si es un grupo se vera el grupo que tiene asignado -->
+<!-- Quiero añadir un menu de navegación donde se seleccione el listado de salas -->
+{% block content %}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+        <h2>Menú de Navegación</h2>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <a href="{% url 'listado_salas' %}">Listado de Salas</a>
+                <a href="{% url 'listado_grupos' %}" class="ml-3">Listado de Grupos</a>
+            </li>
+        </ul>
+        <div class="card shadow">
+            <div class="card-header bg-success text-white">
+                Información de la Cuenta
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">{{ user.username }}</h5>
+                <p class="card-text">Email: {{ user.email }}</p>
+
+                {% if grupo %}
+                    <h6>Grupo Asignado:</h6>
+                    <p>{{ grupo.nombre }}</p>
+                    <p>Descripción: {{ grupo.descripcion }}</p>
+                    <p>Género: {{ grupo.genero }}</p>
+                    <p>Integrantes: {{ grupo.integrantes }}</p>
+                    <p>Biografía: {{ grupo.biografia }}</p>
+                    <p>Redes Sociales: {{ grupo.redes_sociales }}</p>
+                    <p>Ciudad: {{ grupo.ciudad }}</p>
+                    <p>Email de Contacto: {{ grupo.email_contacto }}</p>
+                    <p>Teléfono de Contacto: {{ grupo.telefono_contacto }}</p>
+                    <p>Rider: {{ grupo.rider }}</p>
+
+                {% elif sala %}
+                    <h6>Sala Asignada:</h6>
+                    <p>{{ sala.nombre }}</p>
+                    <p>Descripción: {{ sala.descripcion }}</p>
+                    <p>Capacidad: {{ sala.capacidad }}</p>
+                    <p>Equipamiento: {{ sala.equipamiento }}</p>
+                    <p>Ciudad: {{ sala.ciudad }}</p>
+                    <p>Email de Contacto: {{ sala.email_contacto }}</p>
+                    <p>Teléfono de Contacto: {{ sala.telefono_contacto }}</p>
+                    <p>Rider: {{ sala.rider }}</p>
+                    <img src="{{ sala.imagen.url }}" alt="Imagen de la sala" class="img-fluid mt-3">
+                    <!-- ver fechas disponibles de la sala -->
+                    <a href="{% url 'fechas_disponibles' sala.id %}" class="btn btn-info btn-sm mt-2">Ver Fechas Disponibles</a>
+                {% else %}
+                    <p>No hay grupo o sala asignada.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!--añadir enlace a perfil.html-->
+<a href="{% url 'perfil' %}" class="btn btn-primary">Ir a Perfil</a>
+<!--añadir enlace para hacer logout-->
+<a href="{% url 'logout' %}" class="btn btn-danger">Cerrar Sesión</a>
+{% endblock %}

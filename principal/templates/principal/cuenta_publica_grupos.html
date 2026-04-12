@@ -1,0 +1,14 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+    <h2>Información Pública de la Cuenta</h2>
+    <h3>Grupo: {{ grupo.nombre }}</h3>
+    <p>Descripción: {{ grupo.descripcion }}</p>
+    <p>Género: {{ grupo.genero }}</p>
+    <p>Integrantes: {{ grupo.integrantes }}</p>
+    <p>Biografía: {{ grupo.biografia }}</p>
+    <p>Redes Sociales: {{ grupo.redes_sociales }}</p>
+    <p>Ciudad: {{ grupo.ciudad }}</p>
+    <p>Email de Contacto: {{ grupo.email_contacto }}</p>
+    <p>Teléfono de Contacto: {{ grupo.telefono_contacto }}</p>
+    <p>Rider: {{ grupo.rider }}</p>
+{% endblock %}
