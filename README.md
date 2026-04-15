@@ -22,7 +22,12 @@
 - separo la api en su carpeta para no teber todo mezclado
 - endpoint disponibilidad de salas funcionando
 - endopoint disponibilidad salas por fecha funcionando
-
+- actualizo seriallizer de resreva sala 
+- modifico modelo reserva
+- hago migraciones
+- creo reservas para que los grupos puedan resrevar fechas
+- creo confirmaion de salas para las reservas
+- mejoro la ceracion de los grupos 
 ## cosas para añadir
 - seguir trabajando el tema de lo que sale n ele tema de coockies y demas
 - end pints nuevos en la api

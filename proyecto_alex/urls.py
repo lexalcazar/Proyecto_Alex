@@ -24,6 +24,7 @@ urlpatterns = [
     path('', include('principal.urls')),
     path('api/', include('principal.api.urls_api')),
     path('accounts/', include('accounts.urls')),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:

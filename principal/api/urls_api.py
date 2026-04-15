@@ -4,13 +4,16 @@
 from django.urls import path, include
 from rest_framework import routers
 
-from principal.api.api_views import DisponibilidadSalaViewSet, GrupoViewSet, SalaViewSet, UsuarioViewSet, disponibilidad_salas_por_fecha, grupos_por_ciudad, salas_por_ciudad
+from principal.api.api_views import DisponibilidadSalaViewSet, GrupoViewSet, ReservaViewSet, SalaViewSet, UsuarioViewSet,disponibilidad_salas_por_fecha, grupos_por_ciudad, salas_por_ciudad
 
 router = routers.DefaultRouter()
 router.register(r'usuarios', UsuarioViewSet, basename='usuario')
 router.register(r'salas', SalaViewSet, basename='sala')
 router.register(r'grupos', GrupoViewSet, basename='grupo')
 router.register(r'disponibilidad-salas', DisponibilidadSalaViewSet, basename='disponibilidad-sala')
+router.register(r'reservas', ReservaViewSet, basename='reserva')
+
+
 
 urlpatterns = [
     path('', include(router.urls)),
@@ -21,6 +24,7 @@ urlpatterns = [
         disponibilidad_salas_por_fecha,
         name='disponibilidad-salas-por-fecha'
     ),
+   
     
 
 ]

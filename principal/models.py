@@ -75,7 +75,7 @@ class Reserva(models.Model):
     fecha_reserva = models.DateField()
     estado = models.CharField(max_length=20, choices=ESTADOS, default='pendiente')
     mensaje_grupo = models.TextField(blank=True, null=True)
-    respuesta_sala = models.TextField(blank=True, null=True)
+    confirmacion_sala = models.BooleanField(default=False, null=True, blank=True)
 
     def __str__(self):
         return f"{self.grupo.nombre} - {self.sala.nombre} - {self.fecha_reserva} - {self.estado}"
